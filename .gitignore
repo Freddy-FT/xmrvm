@@ -1,0 +1,94 @@
+# ---------------------------------------------------------------------------
+# Rust / Cargo
+# ---------------------------------------------------------------------------
+# Matches the workspace target dir and any per-crate target dir.
+# Cargo.lock is deliberately NOT ignored: this ships binaries (node), so the
+# lockfile is part of the build contract and should be committed.
+/target
+Cargo.lock.bak
+
+# ---------------------------------------------------------------------------
+# Node runtime data
+# ---------------------------------------------------------------------------
+*.log
+/logs
+/data
+/data/
+/chain.db
+*.ldb
+/index/
+
+# ---------------------------------------------------------------------------
+# Build & profiling artifacts
+# ---------------------------------------------------------------------------
+*.rlib
+*.rmeta
+*.wasm
+*.d
+*.o
+*.so
+*.a
+*.dylib
+*.dll
+*.exe
+*.pdb
+
+# cargo-nextest / cargo-instruments
+.nextest
+*.profraw
+*.profdata
+flamegraph.svg
+perf.data*
+
+# ---------------------------------------------------------------------------
+# Secrets & local config
+# ---------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets.toml
+
+# Cargo local config (mirrors, credentials)
+.cargo/config.toml
+.cargo/credentials.toml
+
+# rust-toolchain pinning is usually committed; uncomment if per-machine only
+# rust-toolchain.toml
+
+# ---------------------------------------------------------------------------
+# Editors & IDEs
+# ---------------------------------------------------------------------------
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+.idea/
+*.swp
+*.swo
+*.kate-swp
+*~
+.cache/
+
+# ---------------------------------------------------------------------------
+# OS files
+# ---------------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ---------------------------------------------------------------------------
+# Test / fuzzing output
+# ---------------------------------------------------------------------------
+/tests/artifacts
+/coverage
+*.prof
+/fuzz/corpus
+/fuzz/artifacts
+/fuzz/coverage
